@@ -142,7 +142,7 @@ function Dashboard() {
                   <label>Endereço:</label>
                   <input type="text" required onChange={(e) => setEndereco(e.target.value) } />
                   <label>Número</label>
-                  <input type="text" required onChange={(e) => setNumero(e.target.value) } />
+                  <input type="number" required onChange={(e) => setNumero(e.target.value) } />
                   <label>Complemento</label>
                   <input type="text" required onChange={(e) => setComplemento(e.target.value) } />
                   <label>Bairro</label>
@@ -152,7 +152,7 @@ function Dashboard() {
                   <label>Estado</label>
                   <input type="text" required onChange={(e) => setEstado(e.target.value) } />
                   <label>Data de Nascimento</label>
-                  <input type="text" required onChange={(e) => setDataNascimento(e.target.value) } />
+                  <input type="date" required onChange={(e) => setDataNascimento(e.target.value) } />
                   <button onClick={handleCloseModal} className="modal_button">Enviar</button>
                 </form>
               </div>
@@ -227,7 +227,7 @@ function Dashboard() {
                   <label>Endereço:</label>
                   <input type="text" required onChange={(e) => setEndereco(e.target.value) } />
                   <label>Número</label>
-                  <input type="text" required onChange={(e) => setNumero(e.target.value) } />
+                  <input type="number" required onChange={(e) => setNumero(e.target.value) } />
                   <label>Complemento</label>
                   <input type="text" required onChange={(e) => setComplemento(e.target.value) } />
                   <label>Bairro</label>
@@ -237,7 +237,7 @@ function Dashboard() {
                   <label>Estado</label>
                   <input type="text" required onChange={(e) => setEstado(e.target.value) } />
                   <label>Data de Nascimento</label>
-                  <input type="text" required onChange={(e) => setDataNascimento(e.target.value) } />
+                  <input type="date" required onChange={(e) => setDataNascimento(e.target.value) } />
                   <button onClick={handleCloseModal} className="modal_button">Enviar</button>
                 </form>
               </div>
