@@ -72,8 +72,25 @@ app.post("/addUser", (req, res) => {
     })
 })
 
-app.get("/updateUser",(req, res) => {
-    connection.query("UPDATE users set email = 'luiz@gmail.com', senha = '223456789' where email = 'gustavo@gmail.com' ",(err, result) => {
+app.patch("/updateUser",(req, res) => {
+    const id = req.body.id;
+
+    const nome = req.body.nome;
+    const cpf = req.body.cpf;
+    const email = req.body.email;
+    const senha = req.body.senha;
+    const telefone = req.body.telefone;
+    const cep = req.body.cep;
+    const endereco = req.body.endereco;
+    const numero = req.body.numero;
+    const complemento = req.body.complemento;
+    const bairro = req.body.bairro;
+    const cidade = req.body.cidade;
+    const estado = req.body.estado;
+    const dataNascimento = req.body.dataNascimento;
+
+
+    connection.query(`UPDATE users set nome = '${nome}', cpf = '${cpf}', email = '${email}', senha = '${senha}', telefone = '${telefone}', cep = '${cep}', endereco = '${endereco}', numero = ${numero}, complemento = '${complemento}', bairro = '${bairro}', cidade = '${cidade}', estado = '${estado}', data_nascimento ='${dataNascimento}' where id = ${id};`,(err, result) => {
     if (err) return console.log(err)
         console.log(result)
     })

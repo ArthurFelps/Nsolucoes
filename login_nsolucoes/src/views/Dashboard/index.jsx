@@ -68,6 +68,33 @@ function Dashboard() {
       .catch(err => console.log(err))
   }
 
+
+  function handleUpdateUserInfo(e, id){
+    e.preventDefault();
+    axios.patch("http://localhost:3000/updateUser", {
+      id,
+      nome, 
+      cpf,
+      email,
+      senha,
+      telefone,
+      cep,
+      endereco,
+      numero,
+      complemento,
+      bairro,
+      cidade,
+      estado,
+      dataNascimento
+    })
+      .then(res => {
+        handleCloseModal(setUpdate);
+        console.log("User Created")
+        setUpdateWindow(!updateWindow)
+      })
+      .catch(err => console.log(err))
+  }
+
   const customStyles = {
     content: {
       top: '50%',
@@ -177,22 +204,43 @@ function Dashboard() {
                     </div>
                   </Modal>
 
-                  <button className="btn_info_btn" onClick={() => handleOpenModal(setUpdate)}>{/*"https://www.flaticon.com/br/icones-gratis/lapis"*/} <img src="src\assets\imagens\lapis.png"/></button>
+                  <button className="btn_info_btn" onClick={() => handleOpenModal(setUpdate, user.id)}>{/*"https://www.flaticon.com/br/icones-gratis/lapis"*/} <img src="src\assets\imagens\lapis.png"/></button>
                   <Modal 
-                    isOpen={update}
+                    isOpen={update === user.id}
                     onRequestClose={() => handleCloseModal(setUpdate)} 
                   >
-                    <label>Nome: arthur</label>
-                    <label>CPF: 123</label>
-                    <label>Telefone: 123</label>
-                    <label>25465</label>
-                    <label>Endereço: awrew</label>
-                    <label>Numero: 12345</label>
-                    <label>Complemento: dsfwr</label>
-                    <label>Bairro: dsfwr</label>
-                    <label>Cidade: mh</label>
-                    <label>Estado: mg</label>
-                    <label>Data de Nascimento: 1992-02-02</label>
+              <h2 className="title">Atualizar informações</h2>
+              <div className="modal_div_form">
+                <form action="" className="modal_Form" onSubmit={(e) => handleUpdateUserInfo(e, user.id)}>
+                  <label>Nome Completo:</label>
+                  <input type="text" required onChange={(e) => setNome(e.target.value) } />
+                  <label>Cpf:</label>
+                  <input type="text" required onChange={(e) => setCpf(e.target.value) } />
+                  <label>E-mail:</label>
+                  <input type="text" required onChange={(e) => setEmail(e.target.value) } />
+                  <label>Senha:</label>
+                  <input type="text" required onChange={(e) => setSenha(e.target.value) } />
+                  <label>Telefone</label>
+                  <input type="text" required onChange={(e) => setTelefone(e.target.value) } />
+                  <label>CEP:</label>
+                  <input type="text" required onChange={(e) => setCep(e.target.value) } />
+                  <label>Endereço:</label>
+                  <input type="text" required onChange={(e) => setEndereco(e.target.value) } />
+                  <label>Número</label>
+                  <input type="text" required onChange={(e) => setNumero(e.target.value) } />
+                  <label>Complemento</label>
+                  <input type="text" required onChange={(e) => setComplemento(e.target.value) } />
+                  <label>Bairro</label>
+                  <input type="text" required onChange={(e) => setBairro(e.target.value) } />
+                  <label>Cidade</label>
+                  <input type="text" required onChange={(e) => setCidade(e.target.value) } />
+                  <label>Estado</label>
+                  <input type="text" required onChange={(e) => setEstado(e.target.value) } />
+                  <label>Data de Nascimento</label>
+                  <input type="text" required onChange={(e) => setDataNascimento(e.target.value) } />
+                  <button onClick={handleCloseModal} className="modal_button">Enviar</button>
+                </form>
+              </div>
                 </Modal>
 
                   <button className="btn_info_btn" onClick={() => {
